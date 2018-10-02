@@ -1,0 +1,25 @@
+<div id="search-component">
+  <input class="form-control mr-sm-2"
+         placement="right"
+         triggers="mouseenter:mouseleave"
+         ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+         popoverTitle="Popover on right"
+         id="search-box"
+         [(ngModel)]="term"
+         (keyup)="search()"
+         type="search"
+         placeholder="Pesquisa Global"
+         aria-label="Search">
+  <ul *ngIf="term" class="search-result" (click)="clear()">
+    <li *ngFor="let turma of turmas$ | async" >
+      <a routerLink="/turmaDetail/{{turma.id}}">
+        {{'turma: ' + turma.nome}}
+      </a>
+    </li>
+    <li *ngFor="let aluno of alunos$ | async" >
+      <a routerLink="/alunoDetail/{{aluno.id}}">
+        {{'Aluno: ' + aluno.nome}}
+      </a>
+    </li>
+  </ul>
+</div>

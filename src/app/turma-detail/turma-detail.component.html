@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <mat-spinner *ngIf="turma.id === 0"></mat-spinner>
+
+      <div *ngIf="turma.id !== 0">
+        <h2>{{turma.nome | uppercase}} Details</h2>
+        <app-confirm-dialog
+          [buttonLabel]="'Delete'"
+          [header]="'Delete'" [message]="'Deseja deletar a turma ' + turma.nome"
+          (event)="delete($event)"
+        >
+        </app-confirm-dialog>
+
+        <button class="btn btn-primary ml-2" (click)="editMode = !editMode">{{editMode ? 'Disable' : 'Enable'}} Edit
+        </button>
+
+        <div class="container">
+          <form>
+            <fieldset [disabled]="!editMode">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text"
+                       class="form-control"
+                       id="nome"
+                       required
+                       [(ngModel)]="turma.nome" name="nome"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="professor">Nome Professor</label>
+                <input type="text"
+                       class="form-control"
+                       id="professor"
+                       required
+                       [(ngModel)]="turma.professor" name="professor"
+
+                >
+              </div>
+
+              <button (click)="update()" type="submit" class="btn btn-success">Update</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <mat-spinner *ngIf="aluno.id === 0"></mat-spinner>
+
+      <div *ngIf="aluno.id !== 0">
+        <h2>{{aluno.nome | uppercase}} Details</h2>
+        <app-confirm-dialog
+          [buttonLabel]="'Delete'"
+          [header]="'Delete'" [message]="'Deseja deletar o aluno ' + aluno.nome"
+          (event)="delete($event)"
+        >
+        </app-confirm-dialog>
+
+        <button type="button" class="btn btn-primary ml-2" (click)="editMode = !editMode">{{editMode ? 'Disable' : 'Enable'}} Edit</button>
+
+
+        <div class="container">
+          <form>
+            <fieldset [disabled]="!editMode">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text"
+                       class="form-control"
+                       id="nome"
+                       required
+                       [(ngModel)]="aluno.nome" name="nome"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="date">Data de nascimento</label>
+                <input type="text"
+                       class="form-control"
+                       id="date"
+                       required
+                       [(ngModel)]="aluno.dataNascimento" name="dataNascimento"
+
+                >
+              </div>
+
+              <div class="form-group">
+                <mat-form-field>
+                  <mat-select placeholder="Turmas" [formControl]="turmasControl" [multiple]="true"
+                              [(ngModel)]="aluno.turmas" [disabled]="!editMode">
+                    <mat-option *ngFor="let turma of turmas" [value]="turma.id">{{turma.nome}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <button (click)="update()" type="submit" class="btn btn-success">Update</button>
+            </fieldset>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

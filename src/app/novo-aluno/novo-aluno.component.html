@@ -1,0 +1,87 @@
+<div class="container">
+  <h1>Novo Aluno</h1>
+  <form #novoAlunoForm="ngForm">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text"
+             class="form-control"
+             id="name"
+             required
+             #name="ngModel"
+             [(ngModel)]="aluno.nome" name="nome"
+      >
+      <div *ngIf="name.invalid && (name.dirty || name.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="name?.errors.required">
+          Este campo e obrigatorio
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Data de nascimento</label>
+      <input type="text"
+             class="form-control"
+             id="date"
+             required
+             mask="99/99/9999"
+             #dayaNasc="ngModel"
+             [(ngModel)]="aluno.dataNascimento" name="dataNascimento"
+
+      >
+      <div *ngIf="dayaNasc.invalid && (dayaNasc.dirty || dayaNasc.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="dayaNasc?.errors.required">
+          Este campo e obrigatorio
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cpf">cpf</label>
+      <input type="text"
+             class="form-control"
+             id="cpf"
+             required
+             mask="999.999.999-37"
+             #cpf="ngModel"
+             [(ngModel)]="aluno.cpf" name="cpf"
+
+      >
+      <div *ngIf="cpf.invalid && (cpf.dirty || cpf.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="cpf?.errors.required">
+          Este campo e obrigatorio
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Genero</label>
+      <div *ngFor="let genero of ['masculino', 'feminino', 'outros']" class="custom-control custom-radio">
+        <input type="radio"
+               class="custom-control-input"
+               id="genero-{{genero}}"
+               name="defaultExampleRadios"
+               value="{{genero}}"
+               [(ngModel)]="aluno.genero">
+        <label class="custom-control-label" for="genero-{{genero}}">{{genero}}</label>
+      </div>
+    </div>
+
+    <mat-form-field>
+      <mat-select placeholder="Turmas" [formControl]="turmasControl" multiple>
+        <mat-option *ngFor="let turma of turmas" [value]="turma.id">{{turma.nome}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button (click)="onSubmit()" type="submit" class="btn btn-success" [disabled]="!novoAlunoForm.valid">Submit</button>
+    {{diagnostic}}
+  </form>
+</div>
