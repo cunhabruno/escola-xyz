@@ -24,9 +24,11 @@
     "@angular/router": "^6.1.0",
     "@ng-bootstrap/ng-bootstrap": "^3.2.2",
     "angular-in-memory-web-api": "^0.6.1",
+    "bootstrap": "^4.1.3",
     "core-js": "^2.5.4",
     "ngx-mask": "^6.2.4",
     "rxjs": "~6.2.0",
+    "selenium-cucumber-easy": "file:../selenium-cucumber-easy",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

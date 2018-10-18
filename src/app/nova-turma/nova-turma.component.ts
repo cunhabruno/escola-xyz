@@ -13,7 +13,7 @@ import {Router} from '@angular/router';
 })
 export class NovaTurmaComponent implements OnInit {
 
-  model = {nome: '', professor: ''};
+  model = {nome: '', professor: '', turno: ''};
 
   submitted = false;
 
@@ -27,9 +27,8 @@ export class NovaTurmaComponent implements OnInit {
   }
 
   onSubmit() {
-    const nome = this.model.nome;
-    const professor = this.model.professor;
-    this.turmaService.addTurma({nome, professor} as Turma).subscribe();
+    const { nome, professor, turno } = this.model;
+    this.turmaService.addTurma({nome, professor, turno} as Turma).subscribe();
     this.turmaService.getTurmas().subscribe(turmas => console.log(turmas));
     this.submitted = true;
     this.snackBar.open('Turma ' + this.model.nome + ' adicionada.', 'Ok', {duration: 5000});

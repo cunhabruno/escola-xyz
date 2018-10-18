@@ -3,9 +3,10 @@
     <div class="col-4">
       <mat-spinner *ngIf="turma.id === 0"></mat-spinner>
 
-      <div *ngIf="turma.id !== 0">
-        <h2>{{turma.nome | uppercase}} Details</h2>
+      <div *ngIf="turma.id !== 0" id="turma-detail-container">
+        <h2 id="turma-name">{{turma.nome | uppercase}} Details</h2>
         <app-confirm-dialog
+          id="delete-turma-button"
           [buttonLabel]="'Delete'"
           [header]="'Delete'" [message]="'Deseja deletar a turma ' + turma.nome"
           (event)="delete($event)"
@@ -37,6 +38,15 @@
                        [(ngModel)]="turma.professor" name="professor"
 
                 >
+              </div>
+
+              <div class="form-group">
+                <label for="turno">Turno</label>
+                <select class="form-control"  id="turno"
+                        required
+                        [(ngModel)]="turma.turno" name="turno">
+                  <option *ngFor="let turno of ['manha', 'tarde', 'noite']" [value]="turno">{{turno}}</option>
+                </select>
               </div>
 
               <button (click)="update()" type="submit" class="btn btn-success">Update</button>

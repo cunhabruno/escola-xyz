@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="turmas-container">
   <h2>
     Lista de Turmas:
   </h2>
@@ -18,9 +18,11 @@
       <mat-card-actions>
         <!--[autoClose]="false" triggers="manual" #t="ngbTooltip" (mouseover)="t.open()"-->
         <button mat-icon-button ngbTooltip="Ver Turma"
-
+                class="view-button"
                 routerLink="/turmaDetail/{{turma.id}}"><i class="fas fa-eye"></i></button>
-        <button mat-icon-button ngbTooltip="Editar turma" routerLink="/turmaDetail/{{turma.id}}/edit"><i class="fas fa-edit"></i></button>
+        <button mat-icon-button ngbTooltip="Editar turma"
+                class="edit-button"
+                routerLink="/turmaDetail/{{turma.id}}/edit"><i class="fas fa-edit"></i></button>
       </mat-card-actions>
     </mat-card>
   </div>

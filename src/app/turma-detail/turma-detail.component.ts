@@ -11,7 +11,7 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./turma-detail.component.css']
 })
 export class TurmaDetailComponent implements OnInit {
-  turma: Turma = {id: 0, nome: '', professor: ''};
+  turma: Turma = {id: 0, nome: '', professor: '', turno: ''};
   editMode = false;
   constructor(
     private turmaService: TurmaService,

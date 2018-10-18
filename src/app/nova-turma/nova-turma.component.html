@@ -23,6 +23,15 @@
       >
     </div>
 
+    <div class="form-group">
+      <label for="turno">Turno</label>
+      <select class="form-control"  id="turno"
+              required
+              [(ngModel)]="model.turno" name="turno">
+        <option *ngFor="let turno of ['manha', 'tarde', 'noite']" [value]="turno">{{turno}}</option>
+      </select>
+    </div>
+
     <button (click)="onSubmit()" type="submit" class="btn btn-success">Add</button>
   </form>
 </div>

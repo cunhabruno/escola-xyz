@@ -2,8 +2,8 @@
   <input class="form-control mr-sm-2"
          placement="right"
          triggers="mouseenter:mouseleave"
-         ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
-         popoverTitle="Popover on right"
+         ngbPopover="Adicione o nome de uma turma ou aluno"
+         popoverTitle="global search"
          id="search-box"
          [(ngModel)]="term"
          (keyup)="search()"
@@ -13,7 +13,7 @@
   <ul *ngIf="term" class="search-result" (click)="clear()">
     <li *ngFor="let turma of turmas$ | async" >
       <a routerLink="/turmaDetail/{{turma.id}}">
-        {{'turma: ' + turma.nome}}
+        {{'Turma: ' + turma.nome}}
       </a>
     </li>
     <li *ngFor="let aluno of alunos$ | async" >
