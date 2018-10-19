@@ -2,7 +2,7 @@
   <h2>
     Lista de Turmas:
   </h2>
-  <input #searchBox id="search-box" (keyup)="filter(searchBox.value)" placeholder="Filtrar Turmas"/>
+  <input #searchBox id="filter-box" (keyup)="filter(searchBox.value)" placeholder="Filtrar Turmas"/>
   <div class="row">
     <mat-card class="turma-card col-3" *ngFor="let turma of turmas">
       <mat-card-header>

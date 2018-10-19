@@ -12,3 +12,11 @@ Feature: Turmas list
     Then I can see "View Button" on turma "Paradigmas" card
     And I can see "Edit Button" on turma "Paradigmas" card
     And I can see "professor label" on turma "Paradigmas" card with the text "Adelina"
+
+  @run
+  Scenario: Filter Turma
+    Given I click on "Menu Item" button on "Nav Menu" with the text "Turmas"
+    When I fill in "Filter" on "Turmas" with the value "Paradigmas"
+    Then I can see "Card title" that has the text "Paradigmas" displayed on "Turmas"
+    And I fill in "Filter" on "Turmas" with the value "empty"
+    And I can NOT see "Card title" that has the text "Paradigmas" present on "Turmas"

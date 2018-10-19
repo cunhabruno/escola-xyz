@@ -15,6 +15,7 @@ module.exports = {
   },
   'TURMAS' : {
     'LANDINGPAGE' : By.id('turmas-container'),
+    'FILTER' : By.id('filter-box'),
     'CARDTITLE' : titleLabel => By.xpath('//a[@class="mat-card-title"][.="' + titleLabel + '"]')
   },
   'TURMADETAIL': {
