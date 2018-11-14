@@ -47,7 +47,7 @@
              class="form-control"
              id="cpf"
              required
-             mask="999.999.999-37"
+             mask="999.999.999-99"
              #cpf="ngModel"
              [(ngModel)]="aluno.cpf" name="cpf"
 
@@ -82,6 +82,6 @@
     </mat-form-field>
 
     <button (click)="onSubmit()" type="submit" class="btn btn-success" [disabled]="!novoAlunoForm.valid">Submit</button>
-    {{diagnostic}}
+
   </form>
 </div>
