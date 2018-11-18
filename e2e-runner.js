@@ -8,7 +8,8 @@ module.exports = {
   ],
 
   featureFiles : [
-    'e2e/src/features/'
+    'e2e/src/features/turmas-list.feature',
+    'e2e/src/features/global-search.feature'
   ],
 
   stepDefinitions : [

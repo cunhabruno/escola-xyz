@@ -64,20 +64,21 @@
 
     <div class="form-group">
       <label>Genero</label>
-      <div *ngFor="let genero of ['masculino', 'feminino', 'outros']" class="custom-control custom-radio">
-        <input type="radio"
-               class="custom-control-input"
-               id="genero-{{genero}}"
-               name="defaultExampleRadios"
-               value="{{genero}}"
-               [(ngModel)]="aluno.genero">
-        <label class="custom-control-label" for="genero-{{genero}}">{{genero}}</label>
+      <div *ngFor="let genero of ['masculino', 'feminino', 'outros']" class="radio">
+        <label>
+          <input type="radio"
+                 id="genero-{{genero}}"
+                 name="defaultExampleRadios"
+                 value="{{genero}}"
+                 [(ngModel)]="aluno.genero">
+          {{genero}}
+        </label>
       </div>
     </div>
 
     <mat-form-field>
-      <mat-select placeholder="Turmas" [formControl]="turmasControl" multiple>
-        <mat-option *ngFor="let turma of turmas" [value]="turma.id">{{turma.nome}}</mat-option>
+      <mat-select id="turmas-dropdown" placeholder="Turmas" [formControl]="turmasControl" multiple>
+        <mat-option class="turma-option" *ngFor="let turma of turmas" [value]="turma.id">{{turma.nome}}</mat-option>
       </mat-select>
     </mat-form-field>
 

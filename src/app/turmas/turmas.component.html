@@ -7,7 +7,7 @@
     <mat-card class="turma-card col-3" *ngFor="let turma of turmas">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <a mat-card-title  routerLink="/turmaDetail/{{turma.id}}">{{turma.nome | slice:0:12}}</a>
+        <a mat-card-title  routerLink="/turmaDetail/{{turma.id}}" ngbTooltip="Ver Turma">{{turma.nome | slice:0:12}}</a>
         <mat-card-subtitle>{{turma.professor}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content >
@@ -15,7 +15,7 @@
           {{ ('Aqui uma breve descricao da turma de ' + turma.nome | slice:0:40) + '...'}}
         </p>
       </mat-card-content>
-      <mat-card-actions>
+      <mat-card-actions >
         <!--[autoClose]="false" triggers="manual" #t="ngbTooltip" (mouseover)="t.open()"-->
         <button mat-icon-button ngbTooltip="Ver Turma"
                 class="view-button"
