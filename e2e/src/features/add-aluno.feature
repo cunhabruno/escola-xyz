@@ -1,12 +1,11 @@
 Feature: Add new Aluno
-
   @hold
   Scenario: Add a new aluno
     Given I go to the following page "http://localhost:4200"
     When I click on "Menu Item" button on "Nav Menu" that has the text "Adicionar Aluno"
     Then I am able to add a new aluno
 
-  @run
+  @run @setupScenario
   Scenario: Add a new turma
     Given I go to the following page "http://localhost:4200"
     When I click on "Menu Item" button on "Nav Menu" that has the text "Adicionar Turma"
