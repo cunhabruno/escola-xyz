@@ -15,7 +15,7 @@ Feature: Turmas list
     And I mouse hover on "Card Title" that has the text "Paradigmas" on "Turmas"
     And I can see "Card tooltip" that has the text "Paradigmas" displayed on "Turmas"
 
-  @run
+  @dontRun
   Scenario: Filter Turma
     Given I click on "Menu Item" button on "Nav Menu" that has the text "Turmas"
     When I fill in "Filter" on "Turmas" with the value "Paradigmas"
